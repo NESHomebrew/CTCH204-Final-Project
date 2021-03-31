@@ -1,8 +1,16 @@
+
+
 public class Cursor{
-    update(){
+  PImage[] cursors;
+  int x,y;
+
+  Cursor() {
+
+  }
+  void update(){
     
   }
-  draw(){
+  void drawIt(){
 
   }
 }

@@ -1,8 +1,8 @@
 public class Background{
-  update(){
+  void update(){
     
   }
-  draw(){
+  void drawIt(){
 
   }
 }

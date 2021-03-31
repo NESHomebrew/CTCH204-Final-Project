@@ -1,8 +1,8 @@
 public class Topbar{
-    update(){
+  void update(){
     
   }
-  draw(){
+  void drawIt(){
 
   }
 }

@@ -1,8 +1,8 @@
 public class Npc {
-  update(){
+  void update(){
     
   }
-  draw(){
+  void drawIt(){
 
   }
 }

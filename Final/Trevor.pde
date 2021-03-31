@@ -1,8 +1,8 @@
 public class Trevor {
-  update(){
-    
+  void update(){
+
   }
-  draw(){
+  void drawIt(){
 
   }
 }
