@@ -25,3 +25,18 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 - Game name
 - win/loss conditions
 - load/save
+
+# Credits
+
+- https://www.youtube.com/watch?v=BTYAsjAVa3I
+
+# Ideas
+
+- Pokemon
+- England
+- Conways Game of Life
+- Systems
+- Minecraft
+- Markiplier
+- More classes than humanly possible
+- Dr. T-Rizzle

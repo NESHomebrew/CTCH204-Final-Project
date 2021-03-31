@@ -1,5 +1,14 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 import processing.video.*;
-import processing.sound.*;
+
+Minim minim;
+AudioPlayer bgm;
 
 Topbar bar;
 Navbar nav;
@@ -40,7 +49,8 @@ void draw() {
 
   if (currentState == GameState.TITLE) {
     fill(255);
-    text("test", width/2, height/2);
+    textSize(40);
+    text("Welcome", width/2, height/2);
   }
   // Updates in desired draw order
   // bg.update();
@@ -71,7 +81,13 @@ void loading() {
   delay(2000);
   progressBar = 0.75;
   loadingMessage = "Loading Sound";
-  delay(2000);
+  
+  minim = new Minim(this);
+  bgm = minim.loadFile("lofi.mp3");
+  bgm.play();
+  bgm.setGain(-30);
+
+  
   progressBar = 1.0;
   loadingMessage = "Done!";
   doFade = true;
@@ -109,7 +125,7 @@ void fade() {
   if (doFade) {
     fadeOpacity += 2;
   } else {
-    fadeOpacity = fadeOpacity > 0 ? fadeOpacity - 2 : 0.0;
+    fadeOpacity = fadeOpacity > 0 ? fadeOpacity - 1 : 0.0;
   }
 
   rectMode(LEFT);
