@@ -35,27 +35,33 @@ void setup(){
 void draw(){
   background(0);
 
-
   if(currentState == GameState.LOADING){
     drawLoadingScreen();
   }
 
+  if(currentState == GameState.TITLE){
+    fill(255);
+    text("test",width/2,height/2);
+  }
   // Updates in desired draw order
   // bg.update();
   // trev.update();
   // bar.update();
   // nav.update();
   // cursor.update();
-  fade();
+
+  fade(); // Always draw the fade last, as it will fade everything
 }
 
 void loading(){
+  // initialize things
   bar = new Topbar();
   nav = new Navbar();
   cursor = new Cursor();
   bg = new Background();
   trev = new Trevor();
 
+  // load things
   progressBar = 0.1;
   delay(2000);
   progressBar = 0.25;
@@ -70,8 +76,8 @@ void loading(){
   progressBar = 1.0;
   loadingMessage = "Done!";
   doFade = true;
-  delay(3000);
-
+  while(doFade) delay(0); // Pause the thread till the fading is done
+  
   currentState = GameState.TITLE;
 }
 
@@ -98,12 +104,15 @@ void drawLoadingScreen(){
 }
 
 void fade(){
-  if(doFade){
-    fadeOpacity += 2;
-  }
   if(fadeOpacity >= 255) {
     doFade = false;
   }
+  if(doFade){
+    fadeOpacity += 2;
+  } else {
+    fadeOpacity = fadeOpacity > 0 ? fadeOpacity - 2 : 0.0;
+  }
+
   rectMode(LEFT);
   fill(0,fadeOpacity);
   rect(0,0,width,height);
