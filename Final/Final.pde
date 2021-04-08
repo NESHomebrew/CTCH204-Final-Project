@@ -9,6 +9,8 @@ import processing.video.*;
 
 Minim minim;
 AudioPlayer bgm;
+AudioPlayer bgm1;
+AudioPlayer bgm2;
 
 Topbar bar;
 Navbar nav;
@@ -20,8 +22,8 @@ Npc[] npc;
 enum GameState {
   LOADING, 
     TITLE, 
-    MENU, 
     PLAYING, 
+    MENU, 
     END
 }
 
@@ -29,15 +31,17 @@ GameState currentState = GameState.LOADING; // init gamestate
 String loadingMessage;
 String ellipsis = "";
 float progressBar;
-float fadeOpacity = 0;
-boolean doFade = false;
+float fadeOpacity = 0;    // 
+boolean doFade = false;   // Initiates a fade
+float currentTime;        // Used in various places where delays are needed
+int index = 0;                // index used for various things
 
 void setup() {
   size(800, 600, P2D);
   surface.setTitle("Trevor's Quest");
 
-  loadingMessage = "Initializing Objects";
   thread("loading");
+  noCursor();
 }
 
 void draw() {
@@ -50,53 +54,76 @@ void draw() {
   if (currentState == GameState.TITLE) {
     fill(255);
     textSize(40);
-    text("Welcome", width/2, height/2);
+    println(index);
+    text(titleArray[index], width/2, height/2);
+
+    if (fadeOpacity == 0.0) {doFade=true;}
+    if(index == 2 && fadeOpacity > 255) {
+      currentState = GameState.PLAYING;
+    }
+    if(index < 2 && fadeOpacity > 255){index++;}
+
   }
   // Updates in desired draw order
   // bg.update();
   // trev.update();
   // bar.update();
   // nav.update();
-  // cursor.update();
+  cursor.update();
 
   fade(); // Always draw the fade last, as it will fade everything
 }
 
 void loading() {
   // initialize things
+  loadingMessage = "Initializing Objects";
   bar = new Topbar();
   nav = new Navbar();
   cursor = new Cursor();
   bg = new Background();
   trev = new Trevor();
-
-  // load things
+  delay(1000);
+  
+  // audio
   progressBar = 0.1;
-  delay(2000);
+  loadingMessage = "Loading Audio";
+  minim = new Minim(this);
+  bgm = minim.loadFile("lofi.mp3",512);  
+  bgm.play();
+  bgm.setGain(-30);
+  delay(1000);
+
+  // images
   progressBar = 0.25;
   loadingMessage = "Loading Images";
   delay(2000);
+
+  // video
   progressBar = 0.5;
   loadingMessage = "Loading Video";
   delay(2000);
-  progressBar = 0.75;
-  loadingMessage = "Loading Sound";
-  
-  minim = new Minim(this);
-  bgm = minim.loadFile("lofi.mp3");
-  bgm.play();
-  bgm.setGain(-30);
-
-  
   progressBar = 1.0;
   loadingMessage = "Done!";
-  doFade = true;
+
+  doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
   currentState = GameState.TITLE;
 }
 
+///////////////////////////////////////////////////////
+///
+///     drawLoadingScreen() Function
+///
+///     This function is called every frame. To initiate a fade
+///     one must set the doFade bool to true. The function will
+///     then automatically fade out to black, then fade back in.
+///
+///////////////////////////////////////////////////////-
+
 void drawLoadingScreen() {
+
+  // Increment ellipsis
   if (frameCount%20 == 0) {
     ellipsis = ellipsis.equals("....") ? "" : ellipsis ;
     ellipsis += ".";
@@ -104,31 +131,50 @@ void drawLoadingScreen() {
   if (progressBar == 1.0) {
     ellipsis = "";
   }
+
   textAlign(CENTER);
   textSize(18);
   fill(255);
   text(loadingMessage+ellipsis, width/2, height/2);
+
+  // Draw Loading bar outline
   fill(100);
   stroke(255);
   strokeWeight(2);
   rectMode(CENTER);
   rect(width/2, height/2+30, 2*width/3, 30, 7);
+
+  // Draw inside loading bar (scaled by progressBar var)
   noStroke();
   fill(#d70a53);
   rect(width/2, height/2+30, (2*width/3 - 8)*progressBar, 23, 4);
 }
 
+///////////////////////////////////////////////////////
+///
+///     fade() Function
+///
+///     This function is called every frame. To initiate a fade
+///     one must set the doFade bool to true. The function will
+///     then automatically fade out to black, then fade back in.
+///
+///////////////////////////////////////////////////////
+
 void fade() {
   if (fadeOpacity >= 255) {
     doFade = false;
   }
-  if (doFade) {
-    fadeOpacity += 2;
-  } else {
+  if (doFade) {         // Fade out
+    fadeOpacity += 2; 
+  } else {              // Fade in
     fadeOpacity = fadeOpacity > 0 ? fadeOpacity - 1 : 0.0;
   }
 
+
+  // This is drawn every frame but because it is usually invisible
+  // the user is none the wiser 
   rectMode(LEFT);
   fill(0, fadeOpacity);
   rect(0, 0, width, height);
 }
+
