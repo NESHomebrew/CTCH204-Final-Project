@@ -37,7 +37,7 @@ float currentTime;        // Used in various places where delays are needed
 int index = 0;                // index used for various things
 
 void setup() {
-  size(800, 600, P2D);
+  size(800, 600);
   surface.setTitle("Trevor's Quest");
 
   thread("loading");
@@ -54,7 +54,6 @@ void draw() {
   if (currentState == GameState.TITLE) {
     fill(255);
     textSize(40);
-    println(index);
     text(titleArray[index], width/2, height/2);
 
     if (fadeOpacity == 0.0) {doFade=true;}
@@ -69,7 +68,9 @@ void draw() {
   // trev.update();
   // bar.update();
   // nav.update();
-  cursor.update();
+  if (currentState == GameState.PLAYING) {
+    cursor.update();
+  }
 
   fade(); // Always draw the fade last, as it will fade everything
 }

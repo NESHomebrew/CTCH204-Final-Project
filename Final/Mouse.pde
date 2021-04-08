@@ -8,7 +8,8 @@ void mouseWheel(MouseEvent event){
       } else {
         cursor.currentCursor--;
       }
-  } else {
+  } 
+  if(e<0) {
     if(cursor.currentCursor == 2) {
       cursor.currentCursor = 0;
     } else {
