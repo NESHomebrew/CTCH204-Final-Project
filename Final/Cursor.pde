@@ -12,7 +12,7 @@ public class Cursor{
   }
   void update(){
     x = mouseX;
-    y = mouseY+24;
+    y = mouseY;
     draw();
   }
   void draw(){

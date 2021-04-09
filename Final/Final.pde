@@ -9,6 +9,9 @@ import processing.video.*;
 
 final float WALKING_SPEED = 2.0;
 
+PFont sans40;
+PFont sans24;
+
 Minim minim;
 AudioPlayer bgm;
 
@@ -52,26 +55,28 @@ void draw() {
     drawLoadingScreen();
   }
 
-  // if (currentState == GameState.TITLE) {
-  //   fill(255);
-  //   textSize(40);
-  //   text(titleArray[index], width/2, height/2);
+  if (currentState == GameState.TITLE) {
+    fill(255);
+    textFont(sans40);
+    textSize(40);
+    text(titleArray[index], width/2, height/2);
 
-  //   if (fadeOpacity == 0.0) {doFade=true;}
-  //   if(index == 2 && fadeOpacity > 255) {
-  //     currentState = GameState.PLAYING;
-  //   }
-  //   if(index < 2 && fadeOpacity > 255){index++;}
+    if (fadeOpacity == 0.0) {doFade=true;}
+    if(index == 2 && fadeOpacity > 255) {
+      currentState = GameState.PLAYING;
+    }
+    if(index < 2 && fadeOpacity > 255){index++;}
+  }
 
-  // }
   // Updates in desired draw order
-  // bg.update();
-  // trev.update();
-  // bar.update();
-  // nav.update();
+
   if (currentState == GameState.PLAYING) {
+    bg.update();
     trev.update();
+    bar.update();
+    nav.update();
     cursor.update();
+
   }
 
   fade(); // Always draw the fade last, as it will fade everything
@@ -84,6 +89,10 @@ void loading() {
   nav = new Navbar();
   cursor = new Cursor();
   bg = new Background();
+  sans40 = new PFont();
+  sans40 = loadFont("ComicSansMS-40.vlw");
+  sans24 = new PFont();
+  sans24 = loadFont("ComicSansMS-24.vlw");
 
   delay(1000);
   

@@ -18,7 +18,7 @@ void mouseWheel(MouseEvent event){
   }
 }
 
-void mouseClicked(MouseEvent event){
+void mousePressed(MouseEvent event){
   // Change cursor mode with right-click
   int button = event.getButton();
   if(button==39) { 
@@ -29,10 +29,14 @@ void mouseClicked(MouseEvent event){
     }
   }
 
+  // Set target coordinate on mouse click
   if(button==37 && cursor.currentCursor == 1) { 
     trev.target.x = mouseX;
-    trev.target.y = mouseY;
+    trev.target.y = mouseY - 24;  // Offset to match location of feet
   }
+  // Update direction
+  if (trev.coords.x < mouseX) { trev.facingRight = true;}
+  else { trev.facingRight = false;}
   
   //Collision checks for clickable objects
 

@@ -1,8 +1,9 @@
 public class Navbar{
+
   void update(){
-    
+    draw();
   }
-  void drawIt(){
+  void draw(){
 
   }
 }

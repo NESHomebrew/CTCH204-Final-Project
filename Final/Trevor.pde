@@ -45,15 +45,9 @@ public class Trevor {
       idleFrame = idleFrame < 3 ? idleFrame + 1 : 0;
     }
 
-    // Update direction
-    if (coords.x < target.x) { facingRight = true;}
-    else { facingRight = false;}
-
     // Update walking/not walking
     if (abs(coords.x - target.x) < 2 && abs(coords.y -target.y) < 2) { walking = false;}
     else { walking = true; }
-
-    println(abs(coords.x - target.x));
 
     // Update x/y coordinates
     float lerpDist = coords.dist(target);
