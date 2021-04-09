@@ -7,7 +7,7 @@ import ddf.minim.ugens.*;
 
 import processing.video.*;
 
-final float WALKING_SPEED = 2.0;
+final float WALKING_SPEED = 3.0;
 
 PFont sans40;
 PFont sans24;
@@ -40,7 +40,8 @@ float currentTime;        // Used in various places where delays are needed
 int index = 0;                // index used for various things
 
 void setup() {
-  size(800, 600);
+  //fullScreen();
+  surface.setSize(800, 600);
   surface.setTitle("Trevor's Quest");
 
   thread("loading");
@@ -185,8 +186,16 @@ void fade() {
 
   // This is drawn every frame but because it is usually invisible
   // the user is none the wiser 
+  noStroke();
   rectMode(LEFT);
   fill(0, fadeOpacity);
   rect(0, 0, width, height);
 }
 
+void keyPressed(){
+  switch(key){
+    case ESC:   // Prevent ESC from closing the window
+      key = 0;
+      break;
+  }
+}

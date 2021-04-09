@@ -37,23 +37,26 @@ public class Trevor {
     }
   }
   void update(){
-    // Update animations
-    if(frameCount%6 == 0) {
-      walkingFrame = walkingFrame < 7 ? walkingFrame + 1 : 0;
-    }
-    if(frameCount%20 == 0) {
-      idleFrame = idleFrame < 3 ? idleFrame + 1 : 0;
+    if(!nav.visible){
+      // Update animations
+      if(frameCount%6 == 0) {
+        walkingFrame = walkingFrame < 7 ? walkingFrame + 1 : 0;
+      }
+      if(frameCount%20 == 0) {
+        idleFrame = idleFrame < 3 ? idleFrame + 1 : 0;
+      }
+
+      // Update walking/not walking
+      if (abs(coords.x - target.x) < WALKING_SPEED && abs(coords.y -target.y) < WALKING_SPEED) { walking = false;}
+      else { walking = true; }
+
+      // Update x/y coordinates
+      float lerpDist = coords.dist(target);
+      if(lerpDist > WALKING_SPEED) {
+        coords.lerp(target, WALKING_SPEED/lerpDist);
+      }
     }
 
-    // Update walking/not walking
-    if (abs(coords.x - target.x) < 2 && abs(coords.y -target.y) < 2) { walking = false;}
-    else { walking = true; }
-
-    // Update x/y coordinates
-    float lerpDist = coords.dist(target);
-    if(lerpDist > 2) {
-      coords.lerp(target, WALKING_SPEED/lerpDist);
-    }
 
 
     draw();

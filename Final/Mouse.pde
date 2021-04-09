@@ -30,14 +30,20 @@ void mousePressed(MouseEvent event){
   }
 
   // Set target coordinate on mouse click
-  if(button==37 && cursor.currentCursor == 1) { 
+  if(button==37 && cursor.currentCursor == 1 && !nav.visible) { 
     trev.target.x = mouseX;
     trev.target.y = mouseY - 24;  // Offset to match location of feet
   }
+  if(button==37 && cursor.currentCursor != 1) { 
+    trev.target.x = trev.coords.x; // stops walking if you press
+    trev.target.y = trev.coords.y; // a different button
+  }
   // Update direction
-  if (trev.coords.x < mouseX) { trev.facingRight = true;}
-  else { trev.facingRight = false;}
-  
-  //Collision checks for clickable objects
+  if(button==37 && !nav.visible) {
+    if (trev.coords.x < mouseX) { trev.facingRight = true;}
+    else { trev.facingRight = false;}
+  }
+  // Collision checks for clickable objects
+
 
 }
