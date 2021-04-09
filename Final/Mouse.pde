@@ -29,7 +29,11 @@ void mouseClicked(MouseEvent event){
     }
   }
 
-
+  if(button==37 && cursor.currentCursor == 1) { 
+    trev.target.x = mouseX;
+    trev.target.y = mouseY;
+  }
+  
   //Collision checks for clickable objects
 
 }

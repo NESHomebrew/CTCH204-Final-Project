@@ -1,5 +1,5 @@
 String[] titleArray = {
   "Alright, welcome back...", 
-  "to CS... ummm ahhh...", 
+  "to CS... ummm uhhh...", 
   "CS204! Creative coding."
   };

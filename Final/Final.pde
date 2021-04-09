@@ -7,10 +7,10 @@ import ddf.minim.ugens.*;
 
 import processing.video.*;
 
+final float WALKING_SPEED = 2.0;
+
 Minim minim;
 AudioPlayer bgm;
-AudioPlayer bgm1;
-AudioPlayer bgm2;
 
 Topbar bar;
 Navbar nav;
@@ -21,10 +21,10 @@ Npc[] npc;
 
 enum GameState {
   LOADING, 
-    TITLE, 
-    PLAYING, 
-    MENU, 
-    END
+  TITLE, 
+  PLAYING, 
+  MENU, 
+  END
 }
 
 GameState currentState = GameState.LOADING; // init gamestate
@@ -42,6 +42,7 @@ void setup() {
 
   thread("loading");
   noCursor();
+  noSmooth();
 }
 
 void draw() {
@@ -51,24 +52,25 @@ void draw() {
     drawLoadingScreen();
   }
 
-  if (currentState == GameState.TITLE) {
-    fill(255);
-    textSize(40);
-    text(titleArray[index], width/2, height/2);
+  // if (currentState == GameState.TITLE) {
+  //   fill(255);
+  //   textSize(40);
+  //   text(titleArray[index], width/2, height/2);
 
-    if (fadeOpacity == 0.0) {doFade=true;}
-    if(index == 2 && fadeOpacity > 255) {
-      currentState = GameState.PLAYING;
-    }
-    if(index < 2 && fadeOpacity > 255){index++;}
+  //   if (fadeOpacity == 0.0) {doFade=true;}
+  //   if(index == 2 && fadeOpacity > 255) {
+  //     currentState = GameState.PLAYING;
+  //   }
+  //   if(index < 2 && fadeOpacity > 255){index++;}
 
-  }
+  // }
   // Updates in desired draw order
   // bg.update();
   // trev.update();
   // bar.update();
   // nav.update();
   if (currentState == GameState.PLAYING) {
+    trev.update();
     cursor.update();
   }
 
@@ -82,7 +84,7 @@ void loading() {
   nav = new Navbar();
   cursor = new Cursor();
   bg = new Background();
-  trev = new Trevor();
+
   delay(1000);
   
   // audio
@@ -97,7 +99,7 @@ void loading() {
   // images
   progressBar = 0.25;
   loadingMessage = "Loading Images";
-  delay(2000);
+  trev = new Trevor();
 
   // video
   progressBar = 0.5;
@@ -109,7 +111,7 @@ void loading() {
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.TITLE;
+  currentState = GameState.PLAYING; //TITLE
 }
 
 ///////////////////////////////////////////////////////
