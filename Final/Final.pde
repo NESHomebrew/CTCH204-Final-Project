@@ -41,7 +41,7 @@ int index = 0;                // index used for various things
 
 void setup() {
   //fullScreen();
-  surface.setSize(800, 600);
+  size(800, 600);
   surface.setTitle("Trevor's Quest");
 
   thread("loading");

@@ -44,6 +44,9 @@ void mousePressed(MouseEvent event){
     else { trev.facingRight = false;}
   }
   // Collision checks for clickable objects
-
-
+  if(button==37 && nav.visible) {
+    if ( nav.mouseRegion < 3) {
+      cursor.currentCursor = nav.mouseRegion;
+    }
+  }
 }

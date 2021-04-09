@@ -1,8 +1,9 @@
 public class Navbar{
   boolean visible;
+  int mouseRegion = 0;
 
   void update(){
-    if (mouseY < 30) {visible = true;}
+    if (mouseY < 60) {visible = true;}
     if (visible && mouseY > 130) { visible = false;}
 
     draw();
@@ -32,7 +33,8 @@ public class Navbar{
           strokeWeight(2);
           stroke(255);
           rect(0,31,198,98);
-          }
+          mouseRegion = i;
+        }
         popMatrix();
       }
     }
