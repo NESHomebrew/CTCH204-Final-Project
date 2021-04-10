@@ -1,4 +1,4 @@
-# CS204-Final-Project
+# CTCH204-Final-Project
 
 As outlined in the syllabus, a significant portion of your grade (40%) is based on a creative programming project. Ultimately what sort of piece you create is up to
 you. It may be something static (like a video) or dynamic (like a video). It may have an interactive component or take no user input whatsoever. You may choose to include audio, external images or even interface with some sort of hardware (like an arduino).
