@@ -22,6 +22,7 @@ public class Topbar{
   void draw(){
     noStroke();
     fill(200);
+    rectMode(CORNER);
     rect(0,0,width,30);
     strokeWeight(1);
     stroke(150);

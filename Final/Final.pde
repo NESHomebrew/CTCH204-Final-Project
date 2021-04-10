@@ -11,6 +11,8 @@ final float WALKING_SPEED = 3.0;
 
 PFont sans40;
 PFont sans24;
+PFont old64;
+PFont old24;
 
 Minim minim;
 AudioPlayer bgm;
@@ -20,7 +22,7 @@ Navbar nav;
 Cursor cursor;
 Background bg;
 Trevor trev;
-Npc[] npc;
+Menu menu;
 
 enum GameState {
   LOADING, 
@@ -71,16 +73,27 @@ void draw() {
 
   // Updates in desired draw order
 
-  if (currentState == GameState.PLAYING) {
+  if (currentState == GameState.PLAYING && !menu.showMenu) {
     bg.update();
     trev.update();
     bar.update();
     nav.update();
-    cursor.update();
+    cursor.update(); 
+  }
 
+  if (currentState == GameState.PLAYING && menu.showMenu) {
+    bg.draw();
+    trev.draw();
+    bar.draw();
+    nav.draw();
   }
 
   fade(); // Always draw the fade last, as it will fade everything
+
+  if (currentState == GameState.PLAYING && menu.showMenu) {
+    menu.update();
+    cursor.update(); 
+  }
 }
 
 void loading() {
@@ -90,10 +103,15 @@ void loading() {
   nav = new Navbar();
   cursor = new Cursor();
   bg = new Background();
+  menu = new Menu();
   sans40 = new PFont();
   sans40 = loadFont("ComicSansMS-40.vlw");
   sans24 = new PFont();
   sans24 = loadFont("ComicSansMS-24.vlw");
+  old64 = new PFont();
+  old64 = loadFont("OldEnglishTextMT-64.vlw");
+  old24 = new PFont();
+  old24 = loadFont("OldEnglishTextMT-24.vlw");
 
   delay(1000);
   
@@ -102,7 +120,7 @@ void loading() {
   loadingMessage = "Loading Audio";
   minim = new Minim(this);
   bgm = minim.loadFile("lofi.mp3",512);  
-  bgm.play();
+  bgm.loop();
   bgm.setGain(-30);
   delay(1000);
 
@@ -196,6 +214,10 @@ void keyPressed(){
   switch(key){
     case ESC:   // Prevent ESC from closing the window
       key = 0;
-      break;
+      menu.showMenu = !menu.showMenu; // ESC also closes and opens
+      if(!menu.showMenu) {            // the config menu
+        cursor.currentCursor = 1;
+      }
+      break;                         
   }
 }

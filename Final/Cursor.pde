@@ -1,7 +1,7 @@
 
 
 public class Cursor{
-  PImage[] cursors = new PImage[3];
+  PImage[] cursors = new PImage[4];
   int x,y;
   int currentCursor = 0;
 
@@ -9,6 +9,7 @@ public class Cursor{
       cursors[0] = loadImage("point.png");
       cursors[1] = loadImage("walk.png");
       cursors[2] = loadImage("talk.png");
+      cursors[3] = loadImage("arrow.png");
   }
   void update(){
     x = mouseX;

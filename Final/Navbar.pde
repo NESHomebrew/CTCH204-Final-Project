@@ -24,16 +24,21 @@ public class Navbar{
         fill(200);
         rect(3,34,194,94);
 
-        // Draw a highlighting box if hovering over a panel
-        if (mouseX >= i*200 &&     // right of the left edge AND
-          mouseX <= i*200+200 &&   // left of the right edge AND
-          mouseY >= 30 &&          // below the top AND
-          mouseY <= 130) {          // above the bottom
-          noFill();
-          strokeWeight(2);
-          stroke(255);
-          rect(0,31,198,98);
-          mouseRegion = i;
+        if (!menu.showMenu) {
+          // Draw a highlighting box if hovering over a panel
+          if (mouseX >= i*200 &&     // right of the left edge AND
+            mouseX <= i*200+200 &&   // left of the right edge AND
+            mouseY >= 30 &&          // below the top AND
+            mouseY <= 130) {          // above the bottom
+            noFill();
+            strokeWeight(2);
+            stroke(255);
+            rect(0,31,198,98);
+            mouseRegion = i;
+          } 
+          if (mouseY < 30) {
+            mouseRegion = 99;
+          }
         }
         popMatrix();
       }
