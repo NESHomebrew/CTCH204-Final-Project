@@ -15,6 +15,7 @@ PFont sans24;
 PFont old64;
 PFont old24;
 PFont alg20;
+PFont alg24;
 
 Minim minim;
 AudioPlayer bgm;
@@ -116,6 +117,8 @@ void loading() {
   old24 = loadFont("OldEnglishTextMT-24.vlw");
   alg20 = new PFont();
   alg20 = loadFont("Algerian-20.vlw");
+  alg24 = new PFont();
+  alg24 = loadFont("Algerian-24.vlw");
 
   delay(1000);
   

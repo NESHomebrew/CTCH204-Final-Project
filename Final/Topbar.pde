@@ -35,7 +35,7 @@ public class Topbar{
     line(0,30,width,30);
     line(0,1,width,1);
     fill(0);
-    textFont(sans24);
+    textFont(alg24);
     textSize(24);
     textAlign(LEFT);
     text("Score : " + points, 8, 24);
