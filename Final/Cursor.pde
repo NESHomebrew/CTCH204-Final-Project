@@ -17,6 +17,6 @@ public class Cursor{
     draw();
   }
   void draw(){
-    image(cursors[currentCursor],x,y);
+    image(cursors[currentCursor],x,y+8);
   }
 }

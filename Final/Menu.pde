@@ -2,11 +2,17 @@ public class Menu {
   Slider volSlider;
   Slider speedSlider;
   boolean showMenu;
+  Button[] buttons = new Button[5];
 
   Menu(){
     volSlider = new Slider(width/2, height/2 - 50, "Volume");
     speedSlider = new Slider(width/2 + 80, height/2 - 50, "Speed");
     showMenu = false;
+    buttons[0] = new Button (width/4, height/2 - 60, "New Game");
+    buttons[1] = new Button (width/4, height/2 - 28, "Load Game");
+    buttons[2] = new Button (width/4, height/2 + 4, "Save Game");
+    buttons[3] = new Button (width/4, height/2 + 68, "Resume");
+    buttons[4] = new Button (width/4, height/2 + 100, "Quit");
   }
 
   void update() {
@@ -14,6 +20,11 @@ public class Menu {
     cursor.currentCursor = 3;
     volSlider.update();
     speedSlider.update();
+    buttons[0].update();
+    buttons[1].update();
+    buttons[2].update();
+    buttons[3].update();
+    buttons[4].update();
     draw();
   }
 
@@ -25,6 +36,11 @@ public class Menu {
     rect(40,40,width-40,height-40);
     volSlider.draw();
     speedSlider.draw();
+    buttons[0].draw();
+    buttons[1].draw();
+    buttons[2].draw();
+    buttons[3].draw();
+    buttons[4].draw();
 
     textAlign(CENTER);
     textFont(old64);

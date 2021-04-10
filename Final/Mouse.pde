@@ -60,16 +60,19 @@ void mousePressed(MouseEvent event){
   if(menu.showMenu) {
     if(menu.volSlider.overSlider) {          // above the bottom
       menu.volSlider.locked = true;
-      println("Vol");
     } else {
       menu.volSlider.locked = false;
     }
     if(menu.speedSlider.overSlider) {          // above the bottom
       menu.speedSlider.locked = true;
-      println("Speed");
     } else {
       menu.speedSlider.locked = false;
     }
+    if(menu.buttons[0].overButton) {println("Clicked New Game");}
+    if(menu.buttons[1].overButton) {println("Clicked Load Game");}
+    if(menu.buttons[2].overButton) {println("Clicked Save Game");}
+    if(menu.buttons[3].overButton) {menu.showMenu = false; cursor.currentCursor = 1;}
+    if(menu.buttons[4].overButton) {exit();}
   }
 }
 
