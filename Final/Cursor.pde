@@ -4,6 +4,7 @@ public class Cursor{
   PImage[] cursors = new PImage[4];
   int x,y;
   int currentCursor = 0;
+  int prevCursor = 0;
 
   Cursor() {
       cursors[0] = loadImage("point.png");

@@ -136,14 +136,14 @@ void loading() {
   // video
   progressBar = 0.5;
   loadingMessage = "Loading Video";
-  delay(2000);
+  delay(1000);
   progressBar = 1.0;
   loadingMessage = "Done!";
 
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.PLAYING; //TITLE
+  currentState = GameState.TITLE; //TITLE
 }
 
 ///////////////////////////////////////////////////////
@@ -218,9 +218,14 @@ void keyPressed(){
   switch(key){
     case ESC:   // Prevent ESC from closing the window
       key = 0;
-      menu.showMenu = !menu.showMenu; // ESC also closes and opens
+      if(currentState == GameState.PLAYING) {
+        menu.showMenu = !menu.showMenu; // ESC also closes and opens
+        if(cursor.currentCursor != 3) {
+          cursor.prevCursor = cursor.currentCursor;
+        }
+      }
       if(!menu.showMenu) {            // the config menu
-        cursor.currentCursor = 1;
+        cursor.currentCursor = cursor.prevCursor;
       }
       break;                         
   }

@@ -51,6 +51,7 @@ void mousePressed(MouseEvent event){
       }
       if ( nav.mouseRegion == 3) {
         menu.showMenu = true;
+        cursor.prevCursor = cursor.currentCursor;
         cursor.currentCursor = 3;
       }
     }
@@ -71,7 +72,11 @@ void mousePressed(MouseEvent event){
     if(menu.buttons[0].overButton) {println("Clicked New Game");}
     if(menu.buttons[1].overButton) {println("Clicked Load Game");}
     if(menu.buttons[2].overButton) {println("Clicked Save Game");}
-    if(menu.buttons[3].overButton) {menu.showMenu = false; cursor.currentCursor = 1;}
+    if(menu.buttons[3].overButton) {
+      menu.showMenu = false; 
+      cursor.currentCursor = cursor.prevCursor; 
+      menu.buttons[3].overButton = false;
+    }
     if(menu.buttons[4].overButton) {exit();}
   }
 }
