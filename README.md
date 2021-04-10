@@ -44,4 +44,4 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 
 # Story - Trevor's Quest
 
-What is Trevor questing for? A full time job. You must apply for jobs and obtain the items required for the applications before the deadlines for each of them run out. You must also remember to do your lectures, mark the assignments, eat, drink, sleep
+What is Trevor questing for? A tenured position, essentially some stability. You must apply for jobs and obtain the items required for the applications before the deadlines for each of them run out. You must also remember to do your lectures, mark the assignments, eat, drink, sleep
