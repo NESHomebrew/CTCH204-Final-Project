@@ -5,6 +5,7 @@ public class Trevor {
   int walkingFrame;
   boolean facingRight;
   boolean walking;
+  float walkingSpeed;
 
   PImage[] idleRight;
   PImage[] walkingRight;
@@ -20,6 +21,7 @@ public class Trevor {
     walkingFrame = 0;
     facingRight = true;
     walking = true;
+    walkingSpeed = 0.3;
 
     PImage temp = loadImage("trev.png");
     idleRight = new PImage[4];
@@ -47,17 +49,17 @@ public class Trevor {
       }
 
       // Update walking/not walking
-      if (abs(coords.x - target.x) < WALKING_SPEED && abs(coords.y -target.y) < WALKING_SPEED) { walking = false;}
+      if (abs(coords.x - target.x) < walkingSpeed && abs(coords.y -target.y) < walkingSpeed) { walking = false;}
       else { walking = true; }
 
       // Update x/y coordinates
       float lerpDist = coords.dist(target);
-      if(lerpDist > WALKING_SPEED) {
-        coords.lerp(target, WALKING_SPEED/lerpDist);
+      if(lerpDist > walkingSpeed) {
+        coords.lerp(target, walkingSpeed/lerpDist);
       }
     }
 
-
+    walkingSpeed = MAX_WALKING_SPEED*abs(menu.speedSlider.level -1);
 
     draw();
   }

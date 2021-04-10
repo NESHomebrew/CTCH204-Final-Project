@@ -7,7 +7,8 @@ import ddf.minim.ugens.*;
 
 import processing.video.*;
 
-final float WALKING_SPEED = 3.0;
+final float MAX_WALKING_SPEED = 10.0;
+final float MAX_VOLUME = 60.0;
 
 PFont sans40;
 PFont sans24;
@@ -119,9 +120,9 @@ void loading() {
   progressBar = 0.1;
   loadingMessage = "Loading Audio";
   minim = new Minim(this);
-  bgm = minim.loadFile("lofi.mp3",512);  
+  bgm = minim.loadFile("lofi.mp3");  
   bgm.loop();
-  bgm.setGain(-30);
+  bgm.setGain(-(MAX_VOLUME*menu.volSlider.level));
   delay(1000);
 
   // images

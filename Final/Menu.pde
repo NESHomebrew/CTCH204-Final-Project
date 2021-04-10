@@ -12,6 +12,8 @@ public class Menu {
   void update() {
     fadeOpacity = 200;
     cursor.currentCursor = 3;
+    volSlider.update();
+    speedSlider.update();
     draw();
   }
 
