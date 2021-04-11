@@ -79,6 +79,15 @@ public class Trevor {
       }
     }
   }
+
+  void bounce() {
+    float lerpDist = coords.dist(target);
+      if(lerpDist > walkingSpeed) {
+        coords.lerp(target, -walkingSpeed/lerpDist);
+      }
+    target.x = coords.x;
+    target.y = coords.y;
+  }
 }
 
 // https://opengameart.org/content/pixelated-employee-character

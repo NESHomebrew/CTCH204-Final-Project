@@ -36,6 +36,7 @@ enum GameState {
 }
 
 GameState currentState = GameState.LOADING; // init gamestate
+String currentText = "";
 String loadingMessage;
 String ellipsis = "";
 float progressBar;
@@ -82,6 +83,12 @@ void draw() {
     bar.update();
     nav.update();
     cursor.update(); 
+
+    fill(255);
+    textFont(sans24);
+    textSize(24);
+    textAlign(CENTER);
+    text(currentText, width/2, height - 24);
   }
 
   if (currentState == GameState.PLAYING && menu.showMenu) {
@@ -97,6 +104,10 @@ void draw() {
     menu.update();
     cursor.update(); 
   }
+
+
+
+  println(mouseX + "," + mouseY);
 }
 
 void loading() {
@@ -105,7 +116,7 @@ void loading() {
   bar = new Topbar();
   nav = new Navbar();
   cursor = new Cursor();
-  bg = new Background();
+  bg = new Background(bgCollision, bgObjects);
   menu = new Menu();
   sans40 = new PFont();
   sans40 = loadFont("ComicSansMS-40.vlw");

@@ -44,7 +44,7 @@ void mousePressed(MouseEvent event){
       if (trev.coords.x < mouseX) { trev.facingRight = true;}
       else { trev.facingRight = false;}
     }
-    // Collision checks for clickable objects
+    // Collision checks for navBar
     if(button==37 && nav.visible) {
       if ( nav.mouseRegion < 3) {
         cursor.currentCursor = nav.mouseRegion;
@@ -53,6 +53,29 @@ void mousePressed(MouseEvent event){
         menu.showMenu = true;
         cursor.prevCursor = cursor.currentCursor;
         cursor.currentCursor = 3;
+      }
+    }
+
+    // Collision checks for object actions
+    if(button==37 && cursor.currentCursor == 0) { 
+      for(Object object : bg.objects) {
+        if(object.polyPoint(mouseX,mouseY)) {
+          currentText = object.action[object.actionClick];
+          if(object.actionClick < object.action.length-1) { object.actionClick++;}
+          else { object.actionClick = 0;}
+          trev.target.x = mouseX;
+          trev.target.y = mouseY;
+        }
+      }
+    }
+    // Collision checks for object info
+    if(button==37 && cursor.currentCursor == 2) { 
+      for(Object object : bg.objects) {
+        if(object.polyPoint(mouseX,mouseY)) {
+          currentText = object.info[object.infoClick];
+          if(object.infoClick < object.info.length-1) { object.infoClick++;}
+          else { object.infoClick = 0;}
+        }
       }
     }
   }
