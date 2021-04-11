@@ -146,7 +146,7 @@ void loading() {
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.TITLE; //TITLE
+  currentState = GameState.PLAYING; //TITLE
 }
 
 ///////////////////////////////////////////////////////

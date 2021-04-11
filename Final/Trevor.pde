@@ -67,15 +67,15 @@ public class Trevor {
     imageMode(CENTER);
     if(walking){
       if(facingRight){
-        image(walkingRight[walkingFrame],coords.x,coords.y,72,72);
+        image(walkingRight[walkingFrame],coords.x,coords.y,120,120);
       } else {
-        image(walkingLeft[walkingFrame],coords.x,coords.y,72,72);
+        image(walkingLeft[walkingFrame],coords.x,coords.y,120,120);
       }
     } else {
       if(facingRight){
-        image(idleRight[idleFrame],coords.x,coords.y,72,72);
+        image(idleRight[idleFrame],coords.x,coords.y,120,120);
       } else {
-        image(idleLeft[idleFrame],coords.x,coords.y,72,72);
+        image(idleLeft[idleFrame],coords.x,coords.y,120,120);
       }
     }
   }
