@@ -102,6 +102,10 @@ void draw() {
     nav.draw();
   }
 
+  if (currentState == GameState.END) {
+    ending();
+  }
+
   fade(); // Always draw the fade last, as it will fade everything
 
   if (currentState == GameState.PLAYING && menu.showMenu) {
@@ -255,4 +259,23 @@ void keyPressed(){
       }
       break;                         
   }
+}
+
+///////////////////////////////////////////////////////
+///
+///     ending() Function
+///
+///     This function is called every frame. To initiate a fade
+///     one must set the doFade bool to true. The function will
+///     then automatically fade out to black, then fade back in.
+///
+///////////////////////////////////////////////////////
+
+void ending() {
+  textFont(sans40);
+  textAlign(CENTER);
+  fill(255);
+  text("Thanks for Playing",width/2,height/3);
+  textFont(sans24);
+  text("Score: " + bar.points + "/66",width/2,height/2);
 }

@@ -14,6 +14,11 @@ public class Topbar{
     meridiem = "AM";
   }
   void update(){
+    if(points == 66 || day == 8) {
+      fadeOpacity = 255;
+      doFade = false;
+      currentState = GameState.END; 
+    }
     if(frameCount%600 == 0) {minutes++;}
     if(minutes == 60) {hours++; minutes = 0;}
     if(hours == 13) {hours = 1; meridiem = "PM";}

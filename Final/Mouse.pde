@@ -88,7 +88,7 @@ void mousePressed(MouseEvent event){
             if(!object.infoStatus){
               jingle.play(0);
               object.infoStatus = true;
-              bar.points++;
+              bar.points++;              
             };
           }
         }
@@ -134,6 +134,14 @@ void mousePressed(MouseEvent event){
       menu.buttons[3].overButton = false;
     }
     if(menu.buttons[4].overButton) {exit();}
+  }
+
+  if(button==37 && currentState == GameState.END) {
+    currentState = GameState.LOADING; 
+      bgm.pause();
+      progressBar = 0.0;
+      thread("loading");
+      currentText = "";
   }
 }
 
