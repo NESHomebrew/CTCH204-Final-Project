@@ -44,3 +44,4 @@ What is Trevor questing for? A tenured position, essentially some stability. You
 - Ending screen
 - Fill shelves
 - Foreground
+- Bottom Text disappear
