@@ -268,8 +268,8 @@ String[] titleArray = {
   };
 
   String[] tiesAction = {
-    "Jesus is LIT!",
-    "OUCH! That succulent is sharp.",
+    "Emergency use only!",
+    "The bunny hops AROUND the tree and up THROUGH the hole.",
   };
 
   String[] tiesInfo = {
