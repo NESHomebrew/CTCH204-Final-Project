@@ -65,7 +65,7 @@ void mousePressed(MouseEvent event){
           else { 
             object.actionClick = 0; 
             if(!object.actionStatus){
-              //jingle.play();
+              jingle.play(0);
               object.actionStatus = true;
               bar.points++;
             };
@@ -84,7 +84,7 @@ void mousePressed(MouseEvent event){
           else { 
             object.infoClick = 0;
             if(!object.infoStatus){
-              //jingle.play();
+              jingle.play(0);
               object.infoStatus = true;
               bar.points++;
             };
@@ -128,6 +128,7 @@ void mouseDragged() {
   if(menu.volSlider.locked) {
     menu.volSlider.level = constrain(((mouseY - menu.volSlider.y - 10)/100.0),0.02,0.98); 
     bgm.setGain(-(MAX_VOLUME*menu.volSlider.level));
+    jingle.setGain(-(MAX_VOLUME*menu.volSlider.level));
   }
   if(menu.speedSlider.locked) {
     menu.speedSlider.level = constrain(((mouseY - menu.speedSlider.y - 10)/100.0),0.02,0.98); 

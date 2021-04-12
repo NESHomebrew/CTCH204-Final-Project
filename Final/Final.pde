@@ -1,11 +1,4 @@
 import ddf.minim.*;
-import ddf.minim.analysis.*;
-import ddf.minim.effects.*;
-import ddf.minim.signals.*;
-import ddf.minim.spi.*;
-import ddf.minim.ugens.*;
-
-import processing.video.*;
 
 final float MAX_WALKING_SPEED = 10.0;
 final float MAX_VOLUME = 60.0;
@@ -21,6 +14,7 @@ PFont pro24;
 
 Minim minim;
 AudioPlayer bgm;
+AudioPlayer jingle;
 
 Topbar bar;
 Navbar nav;
@@ -109,10 +103,6 @@ void draw() {
     menu.update();
     cursor.update(); 
   }
-
-
-
-  println(mouseX + "," + mouseY);
 }
 
 void loading() {
@@ -147,12 +137,16 @@ void loading() {
   bgm = minim.loadFile("lofi.mp3");  
   bgm.loop();
   bgm.setGain(-(MAX_VOLUME*menu.volSlider.level));
+
+  jingle = minim.loadFile("jingle.mp3");  
+  jingle.setGain(-(MAX_VOLUME*menu.volSlider.level));
   delay(1000);
 
   // images
   progressBar = 0.25;
   loadingMessage = "Loading Images";
   trev = new Trevor();
+  delay(1000);
 
   // video
   progressBar = 0.5;
@@ -164,7 +158,7 @@ void loading() {
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.PLAYING; //TITLE
+  currentState = GameState.TITLE; //TITLE
 }
 
 ///////////////////////////////////////////////////////
