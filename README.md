@@ -15,14 +15,14 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 - Story/script
 - Speech
 - Video
-- Cursors
-- Walk-cycle
-- Navbar
+- ~~Cursors~~
+- ~~Walk-cycle~~
+- ~~Navbar~~
 - NPCs
-- Backgrounds
-- Music
-- Title Screen
-- Game name
+- ~~Background~~
+- ~~Music~~
+- ~~Title Screen ish~~
+- ~~Game name~~
 - win/loss conditions
 - load/save
 
@@ -31,18 +31,16 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 - https://www.youtube.com/watch?v=BTYAsjAVa3I
 - https://freesound.org/people/Sirkoto51/sounds/346265/
 
-# Ideas
-
-- Pokemon
-- England
-- Conways Game of Life
-- Systems
-- Minecraft
-- Markiplier
-- More classes than humanly possible
-- Dr. T-Rizzle
-- Marking
-
 # Story - Trevor's Quest
 
 What is Trevor questing for? A tenured position, essentially some stability. You must apply for jobs and obtain the items required for the applications before the deadlines for each of them run out. You must also remember to do your lectures, mark the assignments, eat, drink, sleep
+
+# TODO
+
+- Coloured lights
+- Artists statement
+- Door day cycle
+- Win condition
+- Ending screen
+- Fill shelves
+- Foreground
