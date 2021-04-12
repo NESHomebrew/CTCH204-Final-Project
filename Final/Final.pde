@@ -22,6 +22,7 @@ Cursor cursor;
 Background bg;
 Trevor trev;
 Menu menu;
+Lights lights;
 
 enum GameState {
   LOADING, 
@@ -79,6 +80,7 @@ void draw() {
   if (currentState == GameState.PLAYING && !menu.showMenu) {
     bg.update();
     trev.update();
+    lights.update();
     bar.update();
     nav.update();
     cursor.update(); 
@@ -103,6 +105,8 @@ void draw() {
     menu.update();
     cursor.update(); 
   }
+
+  println(mouseX + "," + mouseY);
 }
 
 void loading() {
@@ -113,6 +117,7 @@ void loading() {
   cursor = new Cursor();
   bg = new Background(bgCollision, bgObjects);
   menu = new Menu();
+  lights = new Lights();
   sans40 = new PFont();
   sans40 = loadFont("ComicSansMS-40.vlw");
   sans24 = new PFont();
@@ -158,7 +163,7 @@ void loading() {
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.TITLE; //TITLE
+  currentState = GameState.PLAYING; //TITLE
 }
 
 ///////////////////////////////////////////////////////

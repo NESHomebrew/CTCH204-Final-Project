@@ -59,7 +59,7 @@ void mousePressed(MouseEvent event){
     // Collision checks for object actions
     if(button==37 && cursor.currentCursor == 0) { 
       for(Object object : bg.objects) {
-        if(object.polyPoint(mouseX,mouseY)) {
+        if(polyPoint(object.vertices,mouseX,mouseY)) {
           currentText = object.action[object.actionClick];
           if(object.actionClick < object.action.length-1) { object.actionClick++;}
           else { 
@@ -78,7 +78,7 @@ void mousePressed(MouseEvent event){
     // Collision checks for object info
     if(button==37 && cursor.currentCursor == 2) { 
       for(Object object : bg.objects) {
-        if(object.polyPoint(mouseX,mouseY)) {
+        if(polyPoint(object.vertices,mouseX,mouseY)) {
           currentText = object.info[object.infoClick];
           if(object.infoClick < object.info.length-1) { object.infoClick++;}
           else { 
@@ -101,7 +101,7 @@ void mousePressed(MouseEvent event){
     } else {
       menu.volSlider.locked = false;
     }
-    if(menu.speedSlider.overSlider) {          // above the bottom
+    if(menu.speedSlider.overSlider) {        // above the bottom
       menu.speedSlider.locked = true;
     } else {
       menu.speedSlider.locked = false;

@@ -11,7 +11,7 @@ public class Background{
     
   }
   void update(){
-    if(!map.polyPoint(trev.coords.x,trev.coords.y+32)) {
+    if(!polyPoint(map.vertices,trev.coords.x,trev.coords.y+32)) {
       trev.bounce();
     }
     draw();

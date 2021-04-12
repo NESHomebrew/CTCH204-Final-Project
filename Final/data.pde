@@ -319,7 +319,7 @@ String[] titleArray = {
 
   String[] pizzaAction = {
     "I'm pretty sure that pizza is harder than the plate.",
-    "I'm gonna need some gloves first.",
+    "I'm not touching that.",
   };
 
   String[] pizzaInfo = {
