@@ -23,12 +23,12 @@ Background bg;
 Trevor trev;
 Menu menu;
 Lights lights;
+InteractiveObjects intObj;
 
 enum GameState {
   LOADING, 
   TITLE, 
-  PLAYING, 
-  MENU, 
+  PLAYING,
   END
 }
 
@@ -40,6 +40,7 @@ float progressBar;
 float fadeOpacity = 0;    // 
 boolean doFade = false;   // Initiates a fade
 float currentTime;        // Used in various places where delays are needed
+float textTimer;
 int index = 0;            // index used for various things
 
 void setup() {
@@ -89,7 +90,9 @@ void draw() {
     textFont(sans24);
     textSize(24);
     textAlign(CENTER);
-    text(currentText, width/2, height - 24);
+    if (currentTime-textTimer < 3000) {
+      text(currentText, width/2, height - 24);
+    }
   }
 
   if (currentState == GameState.PLAYING && menu.showMenu) {
@@ -106,7 +109,7 @@ void draw() {
     cursor.update(); 
   }
 
-  println(mouseX + "," + mouseY);
+  currentTime = millis();
 }
 
 void loading() {
@@ -118,6 +121,8 @@ void loading() {
   bg = new Background(bgCollision, bgObjects);
   menu = new Menu();
   lights = new Lights();
+  intObj = new InteractiveObjects();
+
   sans40 = new PFont();
   sans40 = loadFont("ComicSansMS-40.vlw");
   sans24 = new PFont();

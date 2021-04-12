@@ -61,6 +61,7 @@ void mousePressed(MouseEvent event){
       for(Object object : bg.objects) {
         if(polyPoint(object.vertices,mouseX,mouseY)) {
           currentText = object.action[object.actionClick];
+          textTimer = millis();
           if(object.actionClick < object.action.length-1) { object.actionClick++;}
           else { 
             object.actionClick = 0; 
@@ -80,6 +81,7 @@ void mousePressed(MouseEvent event){
       for(Object object : bg.objects) {
         if(polyPoint(object.vertices,mouseX,mouseY)) {
           currentText = object.info[object.infoClick];
+          textTimer = millis();
           if(object.infoClick < object.info.length-1) { object.infoClick++;}
           else { 
             object.infoClick = 0;
@@ -90,6 +92,17 @@ void mousePressed(MouseEvent event){
             };
           }
         }
+      }
+    }
+    // Collision for InteractiveObjects
+    if(button==37 && cursor.currentCursor == 0) { 
+      if(polyPoint(intObj.homeArea,mouseX,mouseY)) {
+        intObj.homeClickCount++;
+        if(intObj.homeClickCount%2 == 0) { lights.lightsOn = !lights.lightsOn;}
+      }
+      if(polyPoint(intObj.doorArea,mouseX,mouseY)) {
+        doFade = true;
+        bar.day++;
       }
     }
   }

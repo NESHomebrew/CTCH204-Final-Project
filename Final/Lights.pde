@@ -2,7 +2,6 @@ public class Lights {
   color colour;
   float angle,faderR,faderG,faderB;
   boolean lightsOn;
-  boolean clickCount;
 
   Lights(){
     angle = 0.0;
