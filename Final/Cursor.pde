@@ -3,7 +3,7 @@
 public class Cursor{
   PImage[] cursors = new PImage[4];
   int x,y;
-  int currentCursor = 0;
+  int currentCursor = 1;
   int prevCursor = 0;
 
   Cursor() {

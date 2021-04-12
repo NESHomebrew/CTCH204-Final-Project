@@ -19,9 +19,10 @@ public class Background{
   void draw(){
     imageMode(CENTER);
     image(bg,width/2,height/2,640,480);
-    map.draw();
-    for(Object object : objects) {
-      object.draw();
-    }
+
+    // map.draw();
+    // for(Object object : objects) {
+    //   object.draw();
+    // }
   }
 }

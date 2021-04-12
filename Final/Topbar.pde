@@ -38,7 +38,7 @@ public class Topbar{
     textFont(alg24);
     textSize(24);
     textAlign(LEFT);
-    text("Score : " + points, 8, 24);
+    text("Score : " + points + "/66", 8, 24);
     textAlign(CENTER);
     text("DAY " + day, width/2, 24);
     textAlign(RIGHT);

@@ -4,6 +4,7 @@ public class Object {
   String[] action;
   String[] info;
   boolean actionStatus;
+  boolean infoStatus;
   int infoClick;
   int actionClick;
 
@@ -15,6 +16,7 @@ public class Object {
     action = actions;
     info = infos;
     actionStatus = false;
+    infoStatus = false;
     infoClick = 0;
     actionClick = 0;
   }

@@ -62,7 +62,14 @@ void mousePressed(MouseEvent event){
         if(object.polyPoint(mouseX,mouseY)) {
           currentText = object.action[object.actionClick];
           if(object.actionClick < object.action.length-1) { object.actionClick++;}
-          else { object.actionClick = 0;}
+          else { 
+            object.actionClick = 0; 
+            if(!object.actionStatus){
+              //jingle.play();
+              object.actionStatus = true;
+              bar.points++;
+            };
+          }
           trev.target.x = mouseX;
           trev.target.y = mouseY;
         }
@@ -74,7 +81,14 @@ void mousePressed(MouseEvent event){
         if(object.polyPoint(mouseX,mouseY)) {
           currentText = object.info[object.infoClick];
           if(object.infoClick < object.info.length-1) { object.infoClick++;}
-          else { object.infoClick = 0;}
+          else { 
+            object.infoClick = 0;
+            if(!object.infoStatus){
+              //jingle.play();
+              object.infoStatus = true;
+              bar.points++;
+            };
+          }
         }
       }
     }
