@@ -1,8 +1,31 @@
+////////////////////////////////////////////
+///
+///     CTCH204 - Final Project
+///
+///     Program:  Final.pde et al
+///     Title: "Trevor's Quest"
+///     Author: Bradley Bateman - 200262023
+///     Email: batemanb@uregina.ca
+///     Date: Apr 12/2021
+///
+////////////////////////////////////////////
+//
+//      IMPORT/CONSTANTS
+//
+////////////////////////////////////////////
+
 import ddf.minim.*;
 
 final float MAX_WALKING_SPEED = 10.0;
 final float MAX_VOLUME = 60.0;
 
+////////////////////////////////////////////
+//
+//      DEFINES
+//
+////////////////////////////////////////////
+
+// Fonts
 PFont sans40;
 PFont sans24;
 PFont old64;
@@ -12,10 +35,12 @@ PFont alg24;
 PFont pro18;
 PFont pro24;
 
+// Audio
 Minim minim;
 AudioPlayer bgm;
 AudioPlayer jingle;
 
+// Classes
 Topbar bar;
 Navbar nav;
 Cursor cursor;
@@ -25,6 +50,7 @@ Menu menu;
 Lights lights;
 InteractiveObjects intObj;
 
+// Globals
 enum GameState {
   LOADING, 
   TITLE, 
@@ -43,6 +69,16 @@ float currentTime;        // Used in various places where delays are needed
 float textTimer;
 int index = 0;            // index used for various things
 
+////////////////////////////////////////////
+//
+//      setup() function
+//      
+//      I split the setup function into another thread
+//      so there wouldn't be excessive delay without
+//      any graphics on screen.
+//
+////////////////////////////////////////////
+
 void setup() {
   //fullScreen();
   size(800, 600);
@@ -51,10 +87,20 @@ void setup() {
   pro18 = new PFont();
   pro18 = loadFont("ProcessingSansPro-Semibold-18.vlw");
 
-  thread("loading");
-  noCursor();
-  noSmooth();
+  thread("loading");  // Breaking loading off into another thread so I
+                      // can represent the loading graphically
+  noCursor();         // I have my own cursors 
+  noSmooth();         // pixel art scaling doesn't want to be smooth
 }
+
+////////////////////////////////////////////
+//
+//      draw() function
+//      
+//      Using this as a game loop essentially. Draws different
+//      things depending on the gamestate
+//
+////////////////////////////////////////////
 
 void draw() {
   background(0);
@@ -69,15 +115,14 @@ void draw() {
     textSize(40);
     text(titleArray[index], width/2, height/2);
 
-    if (fadeOpacity == 0.0) {doFade=true;}
+    if (fadeOpacity == 0.0) {doFade=true;}  // Triggers fading on title
     if(index == 2 && fadeOpacity > 255) {
       currentState = GameState.PLAYING;
     }
-    if(index < 2 && fadeOpacity > 255){index++;}
-  }
+    if(index < 2 && fadeOpacity > 255){index++;} // How many times 
+  }                                              // has it faded?
 
   // Updates in desired draw order
-
   if (currentState == GameState.PLAYING && !menu.showMenu) {
     bg.update();
     lights.update();
@@ -86,16 +131,9 @@ void draw() {
     bar.update();
     nav.update();
     cursor.update(); 
-
-    fill(255);
-    textFont(sans24);
-    textSize(24);
-    textAlign(CENTER);
-    if (currentTime-textTimer < 3000) {
-      text(currentText, width/2, height - 24);
-    }
   }
 
+  // If the menu is up, don't update, just draw
   if (currentState == GameState.PLAYING && menu.showMenu) {
     bg.draw();
     trev.draw();
@@ -107,15 +145,24 @@ void draw() {
     ending();
   }
 
-  fade(); // Always draw the fade last, as it will fade everything
+  fade(); // Always draw the fade last
 
   if (currentState == GameState.PLAYING && menu.showMenu) {
     menu.update();
     cursor.update(); 
   }
 
-  currentTime = millis();
+  currentTime = millis(); // Updates time every frame
 }
+
+////////////////////////////////////////////
+//
+//      loading() function
+//      
+//      This runs as a separate thread and updates the
+//      progress bar as things are loaded.
+//
+////////////////////////////////////////////
 
 void loading() {
   // initialize things
@@ -163,7 +210,7 @@ void loading() {
   trev = new Trevor();
   delay(1000);
 
-  // video
+  // video - video was planned
   progressBar = 0.5;
   loadingMessage = "Loading Video";
   delay(1000);
@@ -173,7 +220,7 @@ void loading() {
   doFade = true;  // Initiate fade
   while (doFade) delay(0); // Pause the thread till the fading is done
 
-  currentState = GameState.PLAYING; //TITLE
+  currentState = GameState.TITLE; // Set the Gamestate to title screen
 }
 
 ///////////////////////////////////////////////////////
@@ -184,7 +231,7 @@ void loading() {
 ///     one must set the doFade bool to true. The function will
 ///     then automatically fade out to black, then fade back in.
 ///
-///////////////////////////////////////////////////////-
+///////////////////////////////////////////////////////
 
 void drawLoadingScreen() {
 
@@ -244,6 +291,15 @@ void fade() {
   fill(0, fadeOpacity);
   rect(0, 0, width, height);
 }
+
+///////////////////////////////////////////////////////
+///
+///     keyPressed() Function
+///
+///     By default ESC will close the processing window, this disables it
+///     and adds the functionality of closing/opening the menu
+///
+///////////////////////////////////////////////////////
 
 void keyPressed(){
   switch(key){

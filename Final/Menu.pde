@@ -1,3 +1,11 @@
+///////////////////////////////////////////////////////
+///
+///     Menu Class
+///
+///     Handles all the menu stuff
+///
+///////////////////////////////////////////////////////
+
 public class Menu {
   Slider volSlider;
   Slider speedSlider;
@@ -16,7 +24,7 @@ public class Menu {
   }
 
   void update() {
-    fadeOpacity = 200;
+    fadeOpacity = 200;    // Keeps background see-through
     cursor.currentCursor = 3;
     volSlider.update();
     speedSlider.update();

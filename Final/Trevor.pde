@@ -1,3 +1,14 @@
+///////////////////////////////////////////////////////
+///
+///     Trevor class
+///
+///     Pixelart credit
+///     https://opengameart.org/content/pixelated-employee-character
+///
+///     Everything for the player character
+///
+///////////////////////////////////////////////////////
+
 public class Trevor {
   PVector coords = new PVector();
   PVector target = new PVector();;
@@ -29,6 +40,7 @@ public class Trevor {
     walkingRight = new PImage[8];
     walkingLeft = new PImage[8];
 
+    // Getting individual frames from one big one
     for(int i = 0; i < 8; i++){
       for(int j = 0; j < 3; j++) {
         if(j==0 && i < 4){ idleRight[i] = temp.get(i*24,j*24,24,24);}
@@ -38,6 +50,7 @@ public class Trevor {
       }
     }
   }
+
   void update(){
     if(!nav.visible){
       // Update animations
@@ -63,6 +76,7 @@ public class Trevor {
 
     draw();
   }
+
   void draw(){
     imageMode(CENTER);
     if(walking){
@@ -80,6 +94,7 @@ public class Trevor {
     }
   }
 
+  // bounce back if you've hit a boundary
   void bounce() {
     float lerpDist = coords.dist(target);
       if(lerpDist > walkingSpeed) {
@@ -90,4 +105,3 @@ public class Trevor {
   }
 }
 
-// https://opengameart.org/content/pixelated-employee-character

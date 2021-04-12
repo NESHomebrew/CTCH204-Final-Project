@@ -1,14 +1,23 @@
+///////////////////////////////////////////////////////
+///
+///     Mouse Stuff - lots of stuff happening
+///
+///////////////////////////////////////////////////////
+
 void mouseWheel(MouseEvent event){
   float e = event.getCount();
 
   // Change cursor mode with scroll wheel
-  if(e>0){
+  // mouseWheel down
+  if(e>0){ 
     if(cursor.currentCursor == 0) {
         cursor.currentCursor = 2;
       } else {
         cursor.currentCursor--;
       }
   } 
+
+  // mouseWheel up
   if(e<0) {
     if(cursor.currentCursor == 2) {
       cursor.currentCursor = 0;
@@ -109,17 +118,17 @@ void mousePressed(MouseEvent event){
 
   // Collision for menu
   if(menu.showMenu) {
-    if(menu.volSlider.overSlider) {          // above the bottom
+    if(menu.volSlider.overSlider) {       // above the bottom
       menu.volSlider.locked = true;
     } else {
       menu.volSlider.locked = false;
     }
-    if(menu.speedSlider.overSlider) {        // above the bottom
+    if(menu.speedSlider.overSlider) {     // above the bottom
       menu.speedSlider.locked = true;
     } else {
       menu.speedSlider.locked = false;
     }
-    if(menu.buttons[0].overButton) {
+    if(menu.buttons[0].overButton) {      // NEW GAME
       currentState = GameState.LOADING; 
       bgm.pause();
       progressBar = 0.0;
@@ -128,14 +137,15 @@ void mousePressed(MouseEvent event){
     }
     if(menu.buttons[1].overButton) {println("Clicked Load Game");}
     if(menu.buttons[2].overButton) {println("Clicked Save Game");}
-    if(menu.buttons[3].overButton) {
+    if(menu.buttons[3].overButton) {            // RESUME
       menu.showMenu = false; 
       cursor.currentCursor = cursor.prevCursor; 
       menu.buttons[3].overButton = false;
     }
-    if(menu.buttons[4].overButton) {exit();}
+    if(menu.buttons[4].overButton) {exit();}    // QUIT
   }
 
+  // Clicking while on the end screen restarts the game
   if(button==37 && currentState == GameState.END) {
     currentState = GameState.LOADING; 
       bgm.pause();
@@ -145,6 +155,7 @@ void mousePressed(MouseEvent event){
   }
 }
 
+// Used for the sliders
 void mouseDragged() {
   if(menu.volSlider.locked) {
     menu.volSlider.level = constrain(((mouseY - menu.volSlider.y - 10)/100.0),0.02,0.98); 

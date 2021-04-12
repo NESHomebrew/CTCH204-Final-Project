@@ -1,13 +1,23 @@
+///////////////////////////////////////////////////////
+///
+///     Navbar Class
+///
+///     Handles all the navbar stuff
+///
+///////////////////////////////////////////////////////
+
 public class Navbar{
   boolean visible;
   int mouseRegion = 0;
 
+  // Sets the visible flag if mouse is at the top of the screen
   void update(){
     if (mouseY < 60) {visible = true;}
     if (visible && mouseY > 130) { visible = false;}
 
     draw();
   }
+
   void draw(){
     if(visible){
       rectMode(CORNER);

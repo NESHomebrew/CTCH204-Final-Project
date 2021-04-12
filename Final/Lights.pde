@@ -1,3 +1,12 @@
+///////////////////////////////////////////////////////
+///
+///     Lights Class
+///
+///     This is the fancy lighting that turns on when the 
+///     Google Home is activated.
+///
+///////////////////////////////////////////////////////
+
 public class Lights {
   color colour;
   float angle,faderR,faderG,faderB;

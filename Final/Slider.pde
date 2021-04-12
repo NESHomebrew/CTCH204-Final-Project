@@ -1,9 +1,17 @@
+///////////////////////////////////////////////////////
+///
+///     Slider class
+///
+///     Used for the volume and walking speed sliders
+///
+///////////////////////////////////////////////////////
+
 public class Slider {
   int x, y;
-  float level;
-  String label;
-  boolean overSlider;
-  boolean locked;
+  float level;        
+  String label;       // Text above slider
+  boolean overSlider; // If the mouse is over
+  boolean locked;     // Locked for pulling up/down
 
   Slider(int setX, int setY, String text) {
     x = setX;

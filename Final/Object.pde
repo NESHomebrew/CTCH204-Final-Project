@@ -1,10 +1,20 @@
+///////////////////////////////////////////////////////
+///
+///     Object class
+///
+///     This class is for each of the objects you can click on
+///     in a screen. Each object gets a map of points, and text
+///     arrays for action and info.
+///
+///////////////////////////////////////////////////////
+
 public class Object {
   ArrayList<PVector> vertices = new ArrayList<PVector>();
 
   String[] action;
   String[] info;
-  boolean actionStatus;
-  boolean infoStatus;
+  boolean actionStatus; // Used for checking if all the text has
+  boolean infoStatus;   // been viewed
   int infoClick;
   int actionClick;
 
