@@ -1,10 +1,12 @@
 public class Background{
   PImage bg = new PImage();
+  PImage fg = new PImage();
   CollisionMap map;
   Object[] objects;
 
   Background(int[] mapData, Object[] obj){
     bg = loadImage("newbg.png");
+    fg = loadImage("foreground.png");
     map = new CollisionMap(mapData);
 
     objects = obj;

@@ -37,11 +37,11 @@ What is Trevor questing for? A tenured position, essentially some stability. You
 
 # TODO
 
-- Coloured lights
+- ~~Coloured lights~~
 - Artists statement
-- Door day cycle
-- Win condition
-- Ending screen
+- ~~Door day cycle~~
+- ~~Win condition~~
+- ~~Ending screen~~
 - Fill shelves
-- Foreground
-- Bottom Text disappear
+- ~~Foreground~~
+- ~~Bottom Text disappear~~

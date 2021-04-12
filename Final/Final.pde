@@ -81,6 +81,7 @@ void draw() {
   if (currentState == GameState.PLAYING && !menu.showMenu) {
     bg.update();
     trev.update();
+    image(bg.fg,width/2,500,640,80);
     lights.update();
     bar.update();
     nav.update();

@@ -42,6 +42,14 @@ public class Navbar{
         }
         popMatrix();
       }
+      textAlign(CENTER);
+      textFont(pro24);
+      textSize(24);
+      fill(100);
+      text("ACTION", width/8, 80);
+      text("MOVE", 3*width/8, 80);
+      text("INFO", 5*width/8, 80);
+      text("MENU", 7*width/8, 80);
     }
   }
 }
