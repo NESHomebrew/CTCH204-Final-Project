@@ -53,5 +53,15 @@ public class Menu {
     textSize(24);
     text("The search for the tenured position", width/2, height/4 + 32);
 
+    textAlign(LEFT);
+    textFont(pro18);
+    textSize(18);
+    text("Thank-you for playing the Demo of", 3*width/8, 2*height/3);
+    text("Trevor's Quest. This is my first", 3*width/8, 2*height/3+24);
+    text("attempt at building a Point-N-Click", 3*width/8, 2*height/3+48); 
+    text("interface from scratch. It was a lot", 3*width/8, 2*height/3+72);
+    text("of fun and hardwork. I hope you had", 3*width/8, 2*height/3+96);
+    text(" a few laughs. -Brad", 3*width/8, 2*height/3+120);
+     
   }
 }

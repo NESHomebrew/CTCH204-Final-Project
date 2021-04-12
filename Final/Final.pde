@@ -16,6 +16,8 @@ PFont old64;
 PFont old24;
 PFont alg20;
 PFont alg24;
+PFont pro18;
+PFont pro24;
 
 Minim minim;
 AudioPlayer bgm;
@@ -43,12 +45,15 @@ float progressBar;
 float fadeOpacity = 0;    // 
 boolean doFade = false;   // Initiates a fade
 float currentTime;        // Used in various places where delays are needed
-int index = 0;                // index used for various things
+int index = 0;            // index used for various things
 
 void setup() {
   //fullScreen();
   size(800, 600);
   surface.setTitle("Trevor's Quest");
+
+  pro18 = new PFont();
+  pro18 = loadFont("ProcessingSansPro-Semibold-18.vlw");
 
   thread("loading");
   noCursor();
@@ -130,6 +135,8 @@ void loading() {
   alg20 = loadFont("Algerian-20.vlw");
   alg24 = new PFont();
   alg24 = loadFont("Algerian-24.vlw");
+  pro24 = new PFont();
+  pro24 = loadFont("ProcessingSansPro-Semibold-24.vlw");
 
   delay(1000);
   
@@ -183,6 +190,7 @@ void drawLoadingScreen() {
 
   textAlign(CENTER);
   textSize(18);
+  textFont(pro18);
   fill(255);
   text(loadingMessage+ellipsis, width/2, height/2);
 

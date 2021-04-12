@@ -106,7 +106,13 @@ void mousePressed(MouseEvent event){
     } else {
       menu.speedSlider.locked = false;
     }
-    if(menu.buttons[0].overButton) {println("Clicked New Game");}
+    if(menu.buttons[0].overButton) {
+      currentState = GameState.LOADING; 
+      bgm.pause();
+      progressBar = 0.0;
+      thread("loading");
+      currentText = "";
+    }
     if(menu.buttons[1].overButton) {println("Clicked Load Game");}
     if(menu.buttons[2].overButton) {println("Clicked Save Game");}
     if(menu.buttons[3].overButton) {
