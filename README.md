@@ -11,7 +11,7 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 
 # Backlog
 
-- Artists statement
+- ~~Artists statement~~
 - Story/script
 - Speech
 - Video
@@ -23,7 +23,7 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 - ~~Music~~
 - ~~Title Screen ish~~
 - ~~Game name~~
-- win/loss conditions
+- ~~win/loss conditions~~
 - load/save
 
 # Credits
@@ -43,6 +43,6 @@ What is Trevor questing for? A tenured position, essentially some stability. You
 - ~~Door day cycle~~
 - ~~Win condition~~
 - ~~Ending screen~~
-- Fill shelves
+- ~~Fill shelves~~
 - ~~Foreground~~
 - ~~Bottom Text disappear~~
