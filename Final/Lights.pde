@@ -19,7 +19,7 @@ public class Lights {
   }
 
   void update() {
-    faderR = (sin(angle) +1)/2;
+    faderR = (sin(-angle) +1)/2;
     faderG = (cos(angle) +1)/2;
     faderB = (sin(angle) +1)/2;
     colour = color(int(faderR*255),int(faderG*255),int(faderB*255));
