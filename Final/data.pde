@@ -42,7 +42,7 @@ String[] titleArray = {
   };
 
   String[] phdInfo = {
-    "The most expensive peice of paper I own.",
+    "The most expensive piece of paper I own.",
     "Actually, it's DR. T-Rizzle.."
   };
 
@@ -117,7 +117,7 @@ String[] titleArray = {
 
   String[] aocpInfo = {
     "The Art of Computer Programming",
-    "These are a pre-requisite for a PhD",
+    "These are a prerequisite for a PhD",
     "No, I haven't read them.",
   };
 
@@ -178,7 +178,7 @@ String[] titleArray = {
   };
 
   String[] postInfo = {
-    "It's a poster of the cinematic masterpeice CATS.",
+    "It's a poster of the cinematic masterpiece CATS.",
     "This particular iteration features an anthropomorphic Judi Dench.",
     "One glance and it's hard to look away.",
   };
@@ -193,7 +193,7 @@ String[] titleArray = {
   };
 
   String[] phyInfo = {
-    "Proof I spent enough money to get a peice of paper.",
+    "Proof I spent enough money to get a piece of paper.",
     "Made of much better paper than the UofR ones.",
     "Definitely not printed at Staples.",
   };
@@ -329,7 +329,7 @@ String[] titleArray = {
   };
 
   String[] pizzaInfo = {
-    "It's a box of broken 3D printers holding a peice of forgotten pizza.",
+    "It's a box of broken 3D printers holding a piece of forgotten pizza.",
     "Definitely Ham and Pineapple.",
   };
 
@@ -367,7 +367,7 @@ String[] titleArray = {
   };
 
   String[] confAction = {
-    "I spoke at your conferance nd all I got was this lousy plaque.",
+    "I spoke at your conference and all I got was this lousy plaque.",
     "I guess that's better than a T-Shirt.",
   };
 
