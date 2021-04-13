@@ -28,8 +28,9 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 
 # Credits
 
-- https://www.youtube.com/watch?v=BTYAsjAVa3I
-- https://freesound.org/people/Sirkoto51/sounds/346265/
+- lofi background music - https://www.youtube.com/watch?v=BTYAsjAVa3I
+- sound effect - https://freesound.org/people/Sirkoto51/sounds/346265/
+- animated character - https://opengameart.org/content/pixelated-employee-character
 
 # Story - Trevor's Quest
 
@@ -38,7 +39,7 @@ What is Trevor questing for? A tenured position, essentially some stability. You
 # TODO
 
 - ~~Coloured lights~~
-- Artists statement
+- ~~Artists statement~~
 - ~~Door day cycle~~
 - ~~Win condition~~
 - ~~Ending screen~~
