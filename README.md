@@ -11,19 +11,10 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 
 # Backlog
 
-- ~~Artists statement~~
 - Story/script
 - Speech
 - Video
-- ~~Cursors~~
-- ~~Walk-cycle~~
-- ~~Navbar~~
 - NPCs
-- ~~Background~~
-- ~~Music~~
-- ~~Title Screen ish~~
-- ~~Game name~~
-- ~~win/loss conditions~~
 - load/save
 
 # Credits
@@ -36,13 +27,5 @@ you. It may be something static (like a video) or dynamic (like a video). It may
 
 What is Trevor questing for? A tenured position, essentially some stability. You must apply for jobs and obtain the items required for the applications before the deadlines for each of them run out. You must also remember to do your lectures, mark the assignments, eat, drink, sleep
 
-# TODO
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/14246207/158498222-4ff5842e-5e10-4a0f-ae4f-71490714b354.gif)
 
-- ~~Coloured lights~~
-- ~~Artists statement~~
-- ~~Door day cycle~~
-- ~~Win condition~~
-- ~~Ending screen~~
-- ~~Fill shelves~~
-- ~~Foreground~~
-- ~~Bottom Text disappear~~
